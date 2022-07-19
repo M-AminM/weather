@@ -13,6 +13,7 @@ export const Description = styled.div`
   padding-right: 5rem;
   z-index: 2;
   color: white;
+  margin-top: 20vh;
   h2 {
     font-weight: lighter;
   }

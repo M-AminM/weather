@@ -1,5 +1,5 @@
 import home from "../img/weather.jpg";
-import { AboutStyle, Description, Hide, Image } from "../styles";
+import { AboutStyle, Description, Image } from "../styles";
 
 const About = () => {
   return (
