@@ -6,7 +6,9 @@ const Nav = () => {
   return (
     <NavStyle>
       <h1>
-        <Link id="logo" to="/">Home</Link>
+        <Link id="logo" to="/">
+          Home
+        </Link>
       </h1>
       <ul>
         <li>
@@ -30,7 +32,7 @@ const NavStyle = styled.nav`
 
   a {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   ul {
     display: flex;

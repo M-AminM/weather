@@ -1,6 +1,12 @@
+import About from "../components/About";
+
+
 const Home = () => {
     return(
-        <div>Home</div>
+        <div>
+            <About />
+        </div>
+        
     )
 }
 export default Home;

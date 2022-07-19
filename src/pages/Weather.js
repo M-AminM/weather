@@ -21,12 +21,14 @@ const Weather = () => {
   };
 
   const submitHandler = () => {
+    setInput("");
     axios
       .get(
         `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHER_API}&q=${input}&aqi=no`
       )
       .then((response) => {
         setWeather(response.data);
+        
       })
       .catch((err) => {});
   };
@@ -36,7 +38,7 @@ const Weather = () => {
   return (
     <WeatherStyle>
       <Buttons>
-        <input onChange={inputHandler} type="text" />
+        <input value={input} onChange={inputHandler} type="text" />
         <button onClick={submitHandler}>Submit</button>
       </Buttons>
       {weather && (
@@ -56,19 +58,20 @@ const Weather = () => {
   );
 };
 
-const WeatherStyle = styled.div``;
+const WeatherStyle = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
+`;
 
 const Location = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  color: white;
   h1 {
     padding: 2rem;
-    font-size: 4rem;
-  }
-  h2 {
-    font-size: 2rem;
+    font-size: 5rem;
   }
 `;
 
@@ -95,16 +98,12 @@ const Buttons = styled.div`
   input {
     border-radius: 1rem;
     border: 0.1rem solid black;
+    height: 6vh;
+    width: 100%;
+    font-size: 1.5rem;
   }
   button {
-    margin-top: 5px;
-    background: #23d997;
-    border: 0.2rem solid #23d997;
-    &:hover {
-      background: #19513c;
-      color: white;
-      border: 0.2rem solid #19513c;
-    }
+    margin-top: 10px;
   }
 `;
 export default Weather;
