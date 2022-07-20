@@ -1,18 +1,47 @@
 import home from "../img/weather.jpg";
 import { AboutStyle, Description, Image } from "../styles";
+import { motion } from "framer-motion";
 
 const About = () => {
+  const ImgAnim = {
+    hidden: { scale: 1.4 },
+    show: { scale: 1, transition: { duration: 1, ease: "easeOut" } },
+  };
+
+  const orderAnim = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  const anim = {
+    hidden: { y: 100 },
+    show: {
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+        staggerChildren: 1,
+        when: "afterChildren",
+      },
+    },
+  };
   return (
     <AboutStyle>
-      <Description>
-        <h2>
+      <Description variants={anim} initial="hidden" animate="show">
+        <motion.h2 variants={orderAnim}>
           World <span>Weather</span>
-        </h2>
-        <h2>information</h2>
-        <h1>Service</h1>
+        </motion.h2>
+        <motion.h2 variants={orderAnim}>information</motion.h2>
+        <motion.h1 variants={orderAnim}>Service</motion.h1>
       </Description>
       <Image>
-        <img src={home} alt="Weather" />
+        <motion.img
+          variants={ImgAnim}
+          initial="hidden"
+          animate="show"
+          src={home}
+          alt="Weather"
+        />
       </Image>
     </AboutStyle>
   );

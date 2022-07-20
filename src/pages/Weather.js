@@ -33,7 +33,11 @@ const Weather = () => {
       .catch((err) => {});
   };
 
-  console.log(weather);
+  const [temperature, setTemperature] = useState(false);
+
+  const tempHandler = () => {
+    setTemperature(!temperature);
+  }
 
   return (
     <WeatherStyle>
@@ -44,7 +48,7 @@ const Weather = () => {
       {weather && (
         <div>
           <Location>
-            <h1>{weather.current.temp_c}°</h1>
+            <h1 onClick={tempHandler}>{!temperature ? weather.current.temp_c : weather.current.temp_f}°<h6>{!temperature ? "C" : "F"}</h6></h1>
             <h2>{weather.location.name}</h2>
             <Condition>
               <img src={weather.current.condition.icon} />
@@ -72,6 +76,12 @@ const Location = styled.div`
   h1 {
     padding: 2rem;
     font-size: 5rem;
+    cursor: pointer;
+  }
+  h6 {
+    display: inline-block;
+    font-size: 2rem;
+    color: #23d997;
   }
 `;
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
+import { motion } from "framer-motion";
 
 export const AboutStyle = styled.div`
   min-height: 90vh;
@@ -8,7 +9,7 @@ export const AboutStyle = styled.div`
   padding: 5rem 10rem;
 `;
 
-export const Description = styled.div`
+export const Description = styled(motion.div)`
   flex: 1;
   padding-right: 5rem;
   z-index: 2;
