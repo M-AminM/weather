@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const Weather = () => {
   const [weather, setWeather] = useState(null);
@@ -28,7 +29,6 @@ const Weather = () => {
       )
       .then((response) => {
         setWeather(response.data);
-        
       })
       .catch((err) => {});
   };
@@ -37,26 +37,53 @@ const Weather = () => {
 
   const tempHandler = () => {
     setTemperature(!temperature);
-  }
+  };
+
+  const ButtonAnim = {
+    hidden: {
+      x: -200,
+    },
+    show: {
+      x: 5,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const LocationAnim = {
+    hidden: {
+      x: 200,
+    },
+    show: {
+      x: 30,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  console.log(weather);
 
   return (
     <WeatherStyle>
-      <Buttons>
+      <Buttons variants={ButtonAnim} initial="hidden" animate="show">
         <input value={input} onChange={inputHandler} type="text" />
         <button onClick={submitHandler}>Submit</button>
       </Buttons>
       {weather && (
-        <div>
-          <Location>
-            <h1 onClick={tempHandler}>{!temperature ? weather.current.temp_c : weather.current.temp_f}°<h6>{!temperature ? "C" : "F"}</h6></h1>
-            <h2>{weather.location.name}</h2>
-            <Condition>
-              <img src={weather.current.condition.icon} />
-              <div>{weather.current.condition.text}</div>
-              <div>{weather.current.last_updated}</div>
-            </Condition>
-          </Location>
-        </div>
+        <Location variants={LocationAnim} initial="hidden" animate="show">
+          <h1 onClick={tempHandler}>
+            {!temperature ? weather.current.temp_c : weather.current.temp_f}°
+            <h6>{!temperature ? "C" : "F"}</h6>
+          </h1>
+          <h2>{weather.location.name}</h2>
+          <Condition>
+            <img src={weather.current.condition.icon} />
+            <div>{weather.current.condition.text}</div>
+            <div>{weather.current.last_updated}</div>
+          </Condition>
+        </Location>
       )}
     </WeatherStyle>
   );
@@ -68,7 +95,7 @@ const WeatherStyle = styled.div`
   margin-top: 20vh;
 `;
 
-const Location = styled.div`
+const Location = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,7 +126,7 @@ const Condition = styled.div`
   }
 `;
 
-const Buttons = styled.div`
+const Buttons = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;

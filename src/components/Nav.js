@@ -75,7 +75,10 @@ const NavStyle = styled.nav`
   margin: auto;
   align-items: center;
   padding: 1rem 10rem;
-
+  background: #282828;
+  position: sticky;
+  top: 0;
+  z-index: 3;
   a {
     text-decoration: none;
     color: white;

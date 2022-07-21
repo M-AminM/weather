@@ -14,9 +14,9 @@ const About = () => {
   };
 
   const anim = {
-    hidden: { y: 100 },
+    hidden: { x: 200 },
     show: {
-      y: 0,
+      x: 0,
       transition: {
         duration: 0.5,
         ease: "easeOut",

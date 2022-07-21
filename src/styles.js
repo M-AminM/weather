@@ -55,12 +55,16 @@ export const Style = createGlobalStyle`
         }
 
     }
-        span {
-            font-weight: bold;
-            color: #23d997;
-        }
-        h2{
-          font-size: 3rem;  
-        }
+    span {
+        font-weight: bold;
+        color: #23d997;
+    }
+    h2{
+      font-size: 3rem;  
+    }
+    a {
+      text-decoration: none;
+      color: #23d997;
+    }
 
 `;
