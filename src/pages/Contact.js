@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { motion } from "framer-motion";
 import Toggle from "../components/Toggle";
 import { AnimateSharedLayout } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const Contact = () => {

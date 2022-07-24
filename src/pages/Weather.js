@@ -63,10 +63,18 @@ const Weather = () => {
     },
   };
 
-  console.log(weather);
+  const slider = {
+    hidden: { x: "-130%", skew: "45deg" },
+    show: {
+      x: "100%",
+      skew: "0deg",
+      transition: { ease: "easeOut", duration: 1 },
+    },
+  };
 
   return (
     <WeatherStyle>
+      <Frame variants={slider} initial="hidden" animate="show"></Frame>
       <Buttons variants={ButtonAnim} initial="hidden" animate="show">
         <input value={input} onChange={inputHandler} type="text" />
         <button onClick={submitHandler}>Submit</button>
@@ -143,4 +151,15 @@ const Buttons = styled(motion.div)`
     margin-top: 10px;
   }
 `;
+
+const Frame = styled(motion.div)`
+  position: fixed;
+  left: 0;
+  top: 10%;
+  width: 100%;
+  height: 100vh;
+  background: #fffebf;
+  z-index: 2;
+`;
+
 export default Weather;

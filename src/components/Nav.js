@@ -5,12 +5,6 @@ import { motion } from "framer-motion";
 import { useLocation } from "react-router-dom";
 
 const Nav = () => {
-  const [activeLine, setActiveLine] = useState({
-    Home: false,
-    CheckWeather: false,
-    Contact: false,
-  });
-
   const LineAnim = {
     hidden: {
       width: "0%",

@@ -8,7 +8,7 @@ const About = () => {
     show: { scale: 1, transition: { duration: 1, ease: "easeOut" } },
   };
 
-  const orderAnim = {
+  const aboutAnim = {
     hidden: { opacity: 0 },
     show: { opacity: 1, transition: { duration: 0.5 } },
   };
@@ -28,11 +28,11 @@ const About = () => {
   return (
     <AboutStyle>
       <Description variants={anim} initial="hidden" animate="show">
-        <motion.h2 variants={orderAnim}>
+        <motion.h2 variants={aboutAnim}>
           World <span>Weather</span>
         </motion.h2>
-        <motion.h2 variants={orderAnim}>information</motion.h2>
-        <motion.h1 variants={orderAnim}>Service</motion.h1>
+        <motion.h2 variants={aboutAnim}>information</motion.h2>
+        <motion.h1 variants={aboutAnim}>Service</motion.h1>
       </Description>
       <Image>
         <motion.img
